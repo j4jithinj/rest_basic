@@ -42,3 +42,21 @@ class ProductView6(generics.UpdateAPIView):
     serializer_class = serializers.ProductSerializer
     queryset = models.Product.objects.all()
     # lookup_field = 'pk'
+
+class RetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
+    # http_method_names = ['post']
+    serializer_class = serializers.ProductSerializer
+    queryset = models.Product.objects.all()
+    # lookup_field = 'pk'
+
+class RetrieveDestroyAPIView(generics.RetrieveDestroyAPIView):
+    # http_method_names = ['post']
+    serializer_class = serializers.ProductSerializer
+    queryset = models.Product.objects.all()
+    # lookup_field = 'pk'
+
+class RetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    # http_method_names = ['post']
+    serializer_class = serializers.ProductSerializer
+    queryset = models.Product.objects.all()
+    # lookup_field = 'pk'
