@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'myapp',
     'drf_spectacular',
     'rest_framework',
+    'drf_multiple_model',
 ]
 
 MIDDLEWARE = [

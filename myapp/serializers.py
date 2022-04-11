@@ -9,3 +9,8 @@ class ProductSerializer(serializers.ModelSerializer):
 
 class GetProductByIdSerializer(serializers.Serializer):
     id = serializers.CharField()
+
+class PoemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Poem
+        fields = ('title','stanzas')
