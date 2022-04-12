@@ -8,12 +8,13 @@ from . import serializers
 from . import models
 from rest_framework import status
 from drf_multiple_model.views import ObjectMultipleModelAPIView, FlatMultipleModelAPIView
+from generics import permissions
 
 class ProductView1(generics.ListCreateAPIView):
     # http_method_names = ['post']
     serializer_class = serializers.ProductSerializer
     queryset = models.Product.objects.all()
-    # permission_classes = [IsAdminUser]
+    permission_classes = [permissions.SamplePermissionUser]
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()

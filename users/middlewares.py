@@ -27,7 +27,7 @@ class ActivityMiddleware:
             return response
         if request.resolver_match is None or request.path_info.startswith("/media/"):
             return response
-        exceptional_urls = ("openapi-schema", "swagger", "redoc")
+        exceptional_urls = ("schema", "swagger-ui", "redoc")
         if request.resolver_match.url_name in exceptional_urls:
             return response
         # No need to save activity if the request hit is not a successful
@@ -72,13 +72,13 @@ class ActivityMiddleware:
 
         return response
 
-    def process_view(request, view_func, view_args, view_kwargs): pass
+    def process_view(self, request, view_func, view_args, view_kwargs): pass
     # This code is executed just before the view is called
 
-    def process_exception(request, exception): pass
+    def process_exception(self, request, exception): pass
     # This code is executed if an exception is raised
 
-    def process_template_response(request, response):
+    def process_template_response(self, request, response):
         # This code is executed if the response contains a render() method
         return response
 

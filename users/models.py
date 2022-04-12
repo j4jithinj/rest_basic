@@ -22,21 +22,21 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.email
 
-# class Activity(mixins.GenericModelMixin):
-#     class Action(models.TextChoices):
-#         login = "login", "Login"
-#         logout = "logout", "Logout"
+class Activity(mixins.GenericModelMixin):
+    class Action(models.TextChoices):
+        login = "login", "Login"
+        logout = "logout", "Logout"
 
-#     user = models.ForeignKey(User, on_delete=models.CASCADE)
-#     name = models.CharField(max_length=50,
-#                             choices=Action.choices,
-#                             default=Action.login)
-#     description = models.TextField(blank=True, null=True)
-#     arguments = models.JSONField(null=False, default=dict)
-#     organization = models.ForeignKey(Organization,null=True,on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50,
+                            choices=Action.choices,
+                            default=Action.login)
+    description = models.TextField(blank=True, null=True)
+    arguments = models.JSONField(null=False, default=dict)
+    # organization = models.ForeignKey(Organization,null=True,on_delete=models.CASCADE)
 
-#     def __str__(self):
-#         return str(self.id)
+    def __str__(self):
+        return str(self.id)
 
-#     class Meta:
-#         verbose_name_plural = "Activities"
+    class Meta:
+        verbose_name_plural = "Activities"

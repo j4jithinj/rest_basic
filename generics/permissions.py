@@ -4,27 +4,6 @@ from users import models, configurations
 def is_authenticated(self, request, view):
     return IsAuthenticated.has_permission(self, request, view)
 
-
-class IsSuperUser(BasePermission):
-    """
-    Allows access only to non admin users.
-    """
-    def has_permission(self, request, view):
-        if not is_authenticated(self, request, view):
-            return False
-
-        return bool(request.user and request.user.is_staff)
-
-class IsOrganizationUser(BasePermission):
-    """
-    Allows access only to non admin users.
-    """
-    def has_permission(self, request, view):
-        if not is_authenticated(self, request, view):
-            return False
-        return is_user_permitted(request, configurations.ORGANIZATION_USER)
-
-
 def is_user_permitted(request, role_name):
     if not request.user or request.user.is_staff:
         return False
@@ -33,6 +12,15 @@ def is_user_permitted(request, role_name):
     if organization_role is None:
         return False
     return True
+
+class SamplePermissionUser(BasePermission):
+    def has_permission(self, request, view):
+        if not is_authenticated(self, request, view):
+            return False
+        if request.user.email == 'jithin.j@logicplum.com':
+            return True
+        else:
+            return False
 
 
 # class IsOrganizationAdmin(BasePermission):
