@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'rest_framework',
     'drf_multiple_model',
+    "rest_framework_simplejwt.token_blacklist",
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "users.middlewares.ActivityMiddleware",
 ]
 
 ROOT_URLCONF = 'mysite.urls'
