@@ -27,7 +27,7 @@ class ActivityMiddleware:
             return response
         if request.resolver_match is None or request.path_info.startswith("/media/"):
             return response
-        exceptional_urls = ("schema", "swagger-ui", "redoc")
+        exceptional_urls = ("schema", "swagger-ui", "redoc", "superuser-create")
         if request.resolver_match.url_name in exceptional_urls:
             return response
         # No need to save activity if the request hit is not a successful

@@ -11,8 +11,8 @@ USER_ACTIONS = {
         },
     },
     "POST": {
-        "project-status": {
-            "description": "Create project status",
+        "superuser-create": {
+            "description": "Create super user",
         },
     },
     "PUT": {
